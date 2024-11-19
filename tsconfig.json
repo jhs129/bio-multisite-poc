@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true, // Allow .js and .jsx files
+    "checkJs": false, // Don't report errors in .js files (optional)
+    "skipLibCheck": true,
+    "strict": true, // Enable strict type checking
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true, // Prevent emitting compiled files
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve" // Enable JSX support
+    ,
+    "incremental": true,
+    "module": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
