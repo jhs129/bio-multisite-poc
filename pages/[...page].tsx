@@ -4,9 +4,9 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import DefaultErrorPage from "next/error";
 import Head from "next/head";
 import "../builder-registry";
-import Header from "@/components/navigation/header";
-import Footer from "@/components/navigation/footer";
-import { GetStaticProps, GetStaticPaths } from 'next';
+import Header from "@/components/shared/navigation/header";
+import Footer from "@/components/shared/navigation/footer";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 const apiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY;
 if (apiKey) {
@@ -23,7 +23,11 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const page = await builder
     .get("page", {
       userAttributes: {
-        urlPath: "/" + (Array.isArray(params?.page) ? params.page.join("/") : params?.page || ""),
+        urlPath:
+          "/" +
+          (Array.isArray(params?.page)
+            ? params.page.join("/")
+            : params?.page || ""),
       },
     })
     .toPromise();

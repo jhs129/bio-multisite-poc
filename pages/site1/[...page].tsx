@@ -4,8 +4,8 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import DefaultErrorPage from "next/error";
 import Head from "next/head";
 import "../../builder-registry";
-import Header from "@/components/navigation/header";
-import Footer from "@/components/navigation/footer";
+import Header from "@/components/shared/navigation/header";
+import Footer from "@/components/shared/navigation/footer";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 const apiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY;
@@ -24,11 +24,11 @@ interface PageProps {
 export const getStaticProps: GetStaticProps<PageProps> = async (props) => {
   const { params } = props;
 
-  
   let path =
-    "/" + siteName + "/" +
+    "/" +
+    siteName +
+    "/" +
     (Array.isArray(params?.page) ? params.page.join("/") : params?.page || "");
-
 
   console.log("path", path);
   const page = await builder
@@ -38,8 +38,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async (props) => {
       },
     })
     .toPromise();
-
-
 
   return {
     props: {
@@ -80,10 +78,11 @@ const Page: React.FC<PageProps> = ({ page }) => {
       </Head>
       <Header />
       <div className="container mx-auto px-4">
-        <p>{siteName}</p>
         <BuilderComponent model="page" content={page || undefined} />
       </div>
       <Footer />
+      <p className="text-gray-400 px-4">{siteName}</p>
+
     </>
   );
 };
