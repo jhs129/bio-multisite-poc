@@ -1,7 +1,7 @@
 import App from 'next/app';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import '../styles/globals.css'; // Always load global styles
+import '@/styles/globals.css'; // Always load global styles
 
 export default function MyApp({ Component, pageProps, siteKey }) {
 
