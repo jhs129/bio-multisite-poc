@@ -6,7 +6,9 @@ import '@/styles/globals.css'; // Always load global styles
 export default function MyApp({ Component, pageProps, siteKey }) {
 
   useEffect(() => {
-    document.body.className = siteKey; // Dynamically set class
+    if (siteKey) {
+      document.body.className = siteKey; // Dynamically set class
+    }
   }, [siteKey]);
 
   return (
@@ -21,7 +23,7 @@ MyApp.getInitialProps = async (appContext) => {
   const hostname = req.headers.host
 
   const domainMap = {
-    'site1.com': 'site1',
+    'bio-multisite-poc.vercel.app': 'site1',
     'site2.com': 'site2',
     'localhost:3000': 'site1', // Local development
   };
