@@ -15,8 +15,17 @@
 
 
 h1 {
-  @apply text-[2.5rem] my-4 font-sans leading-none text-primaryDark;
+  @apply text-[2.5rem] my-4 font-sans leading-none text-primaryAccent;
 }
+
+  /* Site-specific styles */
+  .site1 h1 {
+    @apply text-blue-500; /* Example: Make h1 blue for site1 */
+  }
+
+  .site2 h1 {
+    @apply text-green-500; /* Example: Make h1 red for site2 */
+  }
 
 h2 {
   @apply text-[2rem] my-4 font-medium font-sans text-inherit;

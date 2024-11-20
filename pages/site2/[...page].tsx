@@ -12,6 +12,7 @@ const apiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY;
 const siteName = "site2";
 
 
+
 if (apiKey) {
   builder.init(apiKey);
 } else {
@@ -22,16 +23,17 @@ interface PageProps {
   page: any;
 }
 
-export const getStaticProps: GetStaticProps<PageProps> = async (props) => {
-  const { params } = props;
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+
 
   let path =
     "/" +
     siteName +
     "/" +
-    (Array.isArray(params?.page) ? params.page.join("/") : params?.page || "");
+    (Array.isArray(context.params?.page)
+      ? context.params.page.join("/")
+      : context.params?.page || "");
 
-  console.log("path", path);
   const page = await builder
     .get("page", {
       userAttributes: {
@@ -43,6 +45,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async (props) => {
   return {
     props: {
       page: page || null,
+
     },
     revalidate: 5,
   };
@@ -78,11 +81,12 @@ const Page: React.FC<PageProps> = ({ page }) => {
         <title>{page?.data?.title}</title>
       </Head>
       <Header />
-      <div className="container mx-auto px-4">
+      <main className="container mx-auto px-4">
         <BuilderComponent model="page" content={page || undefined} />
-      </div>
+      </main>
       <Footer />
       <p className="text-gray-400 px-4">{siteName}</p>
+
     </>
   );
 };
