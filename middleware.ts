@@ -12,6 +12,9 @@ export function middleware(req: NextRequest) {
     req.nextUrl.pathname = `/site2${req.nextUrl.pathname}`;
   }
 
+  console.log('Middleware Path Rewrite:', req.nextUrl.pathname);
+
+
   return NextResponse.rewrite(req.nextUrl);
 }
 
