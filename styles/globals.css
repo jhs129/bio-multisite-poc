@@ -13,9 +13,6 @@
     vertical-align: baseline
 } */
 
-body {
-  @apply bg-white;
-}
 
 h1 {
   @apply text-[2.5rem] my-4 font-sans leading-none text-primaryDark;

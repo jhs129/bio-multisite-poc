@@ -11,7 +11,6 @@ import { GetStaticProps, GetStaticPaths } from "next";
 const apiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY;
 const siteName = "site2";
 
-import "@/styles/site2.css";
 
 if (apiKey) {
   builder.init(apiKey);
