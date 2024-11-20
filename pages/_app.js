@@ -23,8 +23,8 @@ MyApp.getInitialProps = async (appContext) => {
   const hostname = req.headers.host
 
   const domainMap = {
-    'bio-multisite-poc.vercel.app': 'site1',
-    'site2.com': 'site2',
+    's1-bio-multisite-poc.vercel.app': 'site1',
+    's1-bio-multisite-poc.vercel.app': 'site2',
     'localhost:3000': 'site1', // Local development
   };
 
