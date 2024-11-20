@@ -24,7 +24,7 @@ MyApp.getInitialProps = async (appContext) => {
 
   const domainMap = {
     's1-bio-multisite-poc.vercel.app': 'site1',
-    's1-bio-multisite-poc.vercel.app': 'site2',
+    's2-bio-multisite-poc.vercel.app': 'site2',
     'localhost:3000': 'site1', // Local development
   };
 
