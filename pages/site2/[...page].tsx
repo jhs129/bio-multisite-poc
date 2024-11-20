@@ -39,7 +39,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async (props) => {
     })
     .toPromise();
 
- console.log("page", page);
 
   return {
     props: {

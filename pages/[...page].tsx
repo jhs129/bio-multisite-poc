@@ -68,6 +68,7 @@ const Page: React.FC<PageProps> = ({ page }) => {
         <BuilderComponent model="page" content={page || undefined} />
       </div>
       <Footer />
+      <div className="mx-auto p-4">dynamic</div>
     </>
   );
 };
