@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: pages
       .map((page) => String(page.data?.url))
-      .filter((url) => url !== "/"),
+      .filter((url) => url !== "/" && !url.startsWith("/site1") && !url.startsWith("/site2")),
     fallback: "blocking",
   };
 };
